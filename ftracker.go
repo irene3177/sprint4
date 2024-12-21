@@ -46,7 +46,7 @@ func meanSpeed(action int, duration float64) float64 {
 // duration float64 — длительность тренировки в часах.
 func ShowTrainingInfo(action int, trainingType string, duration, weight, height float64, lengthPool, countPool int) string {
 	// ваш код здесь
-	height = height / cmInM
+
 	switch {
 	case trainingType == "Бег":
 		distance := distance(action)                               // вызовите здесь необходимую функцию
@@ -109,6 +109,7 @@ func WalkingSpentCalories(action int, duration, weight, height float64) float64 
 	// ваш код здесь
 	avgWalkingSpeed := meanSpeed(action, duration)
 	speedInMSec := avgWalkingSpeed * kmhInMsec
+	height = height / cmInM
 	return ((walkingCaloriesWeightMultiplier*weight + (math.Pow(speedInMSec, 2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
 }
 
